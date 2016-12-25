@@ -1,11 +1,8 @@
 // Angular entry point. Defines root template directive.
 
 (function() {
-   angular.module('FrontEndChallenge', [])
-          .directive('app', function() {
-             return {
-                restrict: 'E',
-                templateUrl: 'app/app.html'
-             };
-          });
+   angular.module('FrontEndChallenge', ['ngRoute', 'ngAnimate'])
+      .run(function () {
+         console.log('Done loading dependencies and configuring module!');
+      });
 })();
