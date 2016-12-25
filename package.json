@@ -1,0 +1,12 @@
+{
+  "name": "challenge-front-end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/kamirov/challenge-front-end.git",
+  "author": "<andrei.khramtsov@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.0.0"
+  }
+}
