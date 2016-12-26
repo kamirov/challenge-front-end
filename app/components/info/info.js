@@ -2,22 +2,30 @@
    angular.module('FrontEndChallenge')
       .controller('infoCtrl', infoCtrl)
 
-   function infoCtrl($http, $route) {
+   function infoCtrl(offerService, $route) {
       var vm = this;
-      console.log($route);
       var productId = parseInt($route.current.params.productId);
 
-      // Get product based on ID
-      // First get all products
-      $http.get("assets/data.json")
-         .then(function(response) {
-
-            // Now filter for the product we want
-            vm.offer = response.data.products.find(function(item) {
-               return item.id === productId;
-            });
-
-            console.log(vm.offer);
+      // Sync state with service
+      vm.offers = offerService.offers;
+      vm.selected = offerService.selected;
+      offerService.loadOffers().then(function() {
+         // Get current offer
+         vm.offer = vm.offers.find(function(item) {
+            return item.id === productId;
          });
+      });
+
+      this.isSelected = function() {
+         return offerService.isSelected(productId);
+     }
+
+      this.select = function() {
+         return offerService.select(productId);
+      }
+
+      this.reachedMaxSelections = function() {
+         return offerService.reachedMaxSelections();
+      }
    }
 })();

@@ -19,7 +19,15 @@
       </div>
 
       <div class="main-nav-button-cont">
-         <a href="#!/" class="main-nav-button active">Select Offer</a>
+         <a href="#!/" class="main-nav-button active" ng-click="info.select()" ng-show="info.isSelected()">
+            <span>Remove offer</span>
+         </a>
+         <a href="#!/" class="main-nav-button active" ng-click="info.select()" ng-show="!info.isSelected() && !info.reachedMaxSelections()">
+            <span>Select offer</span>
+         </a>
+         <span class="main-nav-button" ng-show="!info.isSelected() && info.reachedMaxSelections()">
+            <span>5 of 5 offers selected</span>
+         </span>
       </div>
    </main>
 </div>

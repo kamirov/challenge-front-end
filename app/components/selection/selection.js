@@ -39,24 +39,25 @@
          return svc.selected.length === maxSelections;
       };
 
-      svc.isSelected = function(offerId) {
-         return svc.selected.includes(offerId);
+      svc.isSelected = function(productId) {
+         return svc.selected.includes(productId);
       };
 
-      svc.select = function(offerId) {
+      // Selects or unselects an offer
+      svc.select = function(productId) {
          // Find the offer 
          var offer = svc.offers.find(function(item) {
-            return item.id === offerId;
+            return item.id === productId;
          });
-         var offerIdx = svc.selected.indexOf(offer.id);
+         var productIdx = svc.selected.indexOf(offer.id);
 
          // Toggle selection
-         if (offerIdx === -1) {
+         if (productIdx === -1) {
             if (!this.reachedMaxSelections())
                svc.selected.push(offer.id);
          }
          else
-            svc.selected.splice(offerIdx, 1);
+            svc.selected.splice(productIdx, 1);
 
          // Update local storage
          $window.localStorage.selected = JSON.stringify(svc.selected);
@@ -86,12 +87,12 @@
       //    currentItem: 1
       // };
 
-      this.isSelected = function(offerId) {
-         return offerService.isSelected(offerId);
+      this.isSelected = function(productId) {
+         return offerService.isSelected(productId);
      }
 
-      this.handleSelect = function(offerId) {
-         offerService.select(offerId);
+      this.select = function(productId) {
+         return offerService.select(productId);
       }
 
       this.reachedMaxSelections = function() {

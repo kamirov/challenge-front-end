@@ -183,9 +183,11 @@ html {
             text-decoration: none;
             color: #fff;
             cursor: default;
+            transition: $animSpeed;
 
             &.active {
                background: #3a99d8;
+               cursor: pointer;
             }
             
             &.done {
@@ -194,23 +196,35 @@ html {
                background: $color;
 
                span {
-                  display: inline-block;
-
                   &:before {
-                     $circle_diameter: 1rem;
-                     display: inline-block;
-                     content:"\2713";
-                     line-height: $circle_diameter;
-                     width: $circle_diameter;
-                     height: $circle_diameter;
-                     border-radius: 50%;
-                     background: #fff;
+                     visibility: visible;
+                     opacity: 1;
                      color: $color;
-                     margin-right: 1rem;
-                     font-size: 0.8rem;
                   }
                }
             }
+
+            span {
+               display: inline-block;
+
+               &:before {
+                  $circle_diameter: 1rem;
+                  display: inline-block;
+                  content:"\2713";
+                  line-height: $circle_diameter;
+                  width: $circle_diameter;
+                  height: $circle_diameter;
+                  border-radius: 50%;
+                  background: #fff;
+                  // color: $color;
+                  margin-right: 1rem;
+                  font-size: 0.8rem;
+                  visibility: hidden;
+                  opacity: 0;
+                  transition: $animSpeed;
+               }
+            }
+
          }
 
       }
