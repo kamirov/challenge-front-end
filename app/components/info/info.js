@@ -24,15 +24,15 @@
          });
       });
 
-      this.isSelected = function() {
+      vm.isSelected = function() {
          return offerService.isSelected(productId);
      }
 
-      this.select = function() {
+      vm.select = function() {
          return offerService.select(productId);
       }
 
-      this.reachedMaxSelections = function() {
+      vm.reachedMaxSelections = function() {
          return offerService.reachedMaxSelections();
       }
    }

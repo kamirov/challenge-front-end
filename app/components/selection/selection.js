@@ -13,15 +13,15 @@
       vm.selected = offerService.selected;
       offerService.loadOffers();
 
-      this.isSelected = function(productId) {
+      vm.isSelected = function(productId) {
          return offerService.isSelected(productId);
      }
 
-      this.select = function(productId) {
+      vm.select = function(productId) {
          return offerService.select(productId);
       }
 
-      this.reachedMaxSelections = function() {
+      vm.reachedMaxSelections = function() {
          return offerService.reachedMaxSelections();
       }
    }

@@ -47,7 +47,7 @@
 
          // Toggle selection
          if (productIdx === -1) {
-            if (!this.reachedMaxSelections())
+            if (!svc.reachedMaxSelections())
                svc.selected.push(offer.id);
          }
          else

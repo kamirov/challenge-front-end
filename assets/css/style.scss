@@ -38,6 +38,7 @@ html {
    font-family: "Montserrat", "proxima-nova", "Helvetica Neue", "Helvetica", Arial, sans-serif;
    background: #fafafa;
    color: #404040;
+   overflow-y: scroll;    // Prevents the animation jump when switching from selection to info views
 }
 
 .wrapper {
@@ -428,17 +429,6 @@ html {
             }
          }
 
-         // &:before {
-            // position: relative;
-            // z-index: 10;
-            // width: 5rem;
-            // height: 5rem;
-            // background: red;
-            // left: -5px;
-            // top: -5px;
-            // border: 1px solid #39ca74;
-         // }
-
          &:nth-last-child(1), &:nth-last-child(2) {
             margin-bottom: 0rem;
          }
@@ -450,7 +440,6 @@ html {
       width: 100%;
       margin-top: 2rem;
       margin-bottom: $mainNavHeight;
-      // margin-bottom: calc(#{$mainNavHeight} + #{$mainNavPaddingTop});
       background: #ffffff;
 
       .logo-and-social {
