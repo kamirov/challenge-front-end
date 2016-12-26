@@ -14,11 +14,16 @@
          </ul>
       </div>
       
-      <h1>Pick your offers</h1>
+      <h1 ng-class="" ng-click="">Pick your offers</h1>
       <div class="offer-gallery">
-         <div class="offer" ng-class="{active:offer.id === 1}" data-id="{{offer.id}}" ng-repeat="offer in selection.offers">
+         <div class="offer" 
+              data-id="{{offer.id}}" 
+              ng-class="{ unselectable: selection.reachedMaxSelections(),
+                          selected: selection.isSelected(offer.id) }"
+              ng-click="selection.handleSelect(offer.id)" 
+              ng-repeat="offer in selection.offers">
             <span class="selected-icon"></span>
-            <a href="#!/info/{{offer.id}}" class="info-icon"></a>
+            <a href="#!/info/{{offer.id}}" class="info-icon" title="Read more about {{offer.name}}"></a>
             <div class="offer-image-cont">
                <img class="offer-image" src="{{offer.image}}">
             </div>
@@ -28,7 +33,9 @@
       </div>
 
       <div class="main-nav-button-cont">
-         <a href="#" class="main-nav-button">1 of 5 offers selected</a>
+         <a href="#" class="main-nav-button" ng-class="{ done: selection.reachedMaxSelections() }">
+            <span>{{selection.selected.length}} of 5 offers selected</span>            
+         </a>
       </div>
    </main>
 
