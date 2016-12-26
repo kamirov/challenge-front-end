@@ -4,10 +4,11 @@
 @import "reset.css";
 
 // Some definitions
-$page_padding_top: 1rem;
-$page_padding_side: 2rem;
-$page_padding: $page_padding_top $page_padding_side;
-$anim_speed: 1s;
+$pagePaddingTop: 1rem;
+$pagePaddingSide: 2rem;
+$pagePadding: $pagePaddingTop $pagePaddingSide;
+$animSpeed: 1s;
+$mainNavHeight: 6rem;
 
 // Some extensible classes
 .clearfix {
@@ -37,7 +38,7 @@ html {
    > header {
       h1 {
          background: #5ac8fa;
-         padding: $page_padding;
+         padding: $pagePadding;
          font-size: 1.2rem;
          color: #fff;
       }
@@ -54,11 +55,11 @@ html {
          background: #fff;
          padding: 1rem;
          position: relative;
-         transition: $anim_speed;
+         transition: $animSpeed;
 
          .selected-icon {
             position: absolute;
-            transition: $anim_speed;
+            transition: $animSpeed;
             left: $icon_offset;
             top: $icon_offset;
             background-image: url("../img/icon_check.svg");
@@ -155,20 +156,24 @@ html {
 
       .main-nav-button-cont {
          background: #f4f4f4;
-         padding: 1rem $page_padding_side;
+         padding: 1rem $pagePaddingSide;
          position: fixed;
          z-index: 50;
          bottom: 0;
-         width: 100%;        
+         width: 100%;
+         height: $mainNavHeight;
+         display: table;
 
          .main-nav-button {
             background: #bfbfbf;
-            padding: 1.4rem 1rem;
+            padding: 0 1rem;
             font-weight: bold;
+            height: 100%;
             font-size: 1rem;
             text-align: center;
             border-radius: 4px;
-            display: block;
+            display: table-cell;
+            vertical-align: middle;
             text-decoration: none;
             color: #fff;
             cursor: default;
@@ -218,7 +223,7 @@ html {
    > main {
 
       h1 {
-         padding: 2rem $page_padding_side;
+         padding: 2rem $pagePaddingSide;
          text-align: center;
          font-size: 1.4rem;
          font-weight: bold;
@@ -229,7 +234,7 @@ html {
 
          $bg_steps_cont: #f4f4f4; 
 
-         padding: 1rem $page_padding_side;
+         padding: 1rem $pagePaddingSide;
          background: $bg_steps_cont;
          width: 100%;        
 
@@ -333,14 +338,14 @@ html {
       }
 
       .offer-gallery {
-         padding: 0 $page_padding_side;
+         padding: 0 $pagePaddingSide;
          display: flex;
          flex-wrap: wrap;
          justify-content: space-between;
       }
 
       .offer {
-         transition: $anim_speed;
+         transition: $animSpeed;
          border: 1px solid #bfbfbf;
          $offset: 0.5rem;
          border-radius: 4px;
@@ -392,7 +397,7 @@ html {
    }
 
    > footer {
-      padding: 0 $page_padding_side;
+      padding: 0 $pagePaddingSide;
       background: #ffffff;
 
       .logo-and-social {
