@@ -3,11 +3,9 @@
       <h1>BabyFirst</h1>
    </header>
    <main>
+
       <div class="steps-cont">
          <ul>
-            <!--<div class="progress">
-               <div class="done"></div>
-            </div>-->
             <li class="step done">Profile</li>
             <li class="step active">Offers</li>
             <li class="step">Success</li>
@@ -39,20 +37,5 @@
       </div>
    </main>
 
-   <footer>
-      <div class="logo-and-social">
-         <img src="assets/img/img_publisher_logo.png" class="pub-logo">
-         <div class="fb-like" data-href="http://google.com" data-width="21" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
-      </div>
-      <nav>
-         <ul>
-            <li><a href="#!">Terms &amp; Conditions</a></li>
-            <li><a href="#!">Terms of Service</a></li>
-            <li><a href="#!">Privacy Policy</a></li>
-            <li><a href="#!">Contact Us</a></li>
-            <li><a href="#!">My Account</a></li>
-            <li><a href="#!">Logout</a></li>
-         </ul>
-      </nav>
-   </footer>
+    <footer ng-include="'app/components/selection/footer.html'"></footer>
 </div>

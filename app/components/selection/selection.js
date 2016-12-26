@@ -3,6 +3,7 @@
       .controller('selectionCtrl', selectionCtrl)
       // .directive('step', stepDirective)
       .directive('offer', offerDirective)
+      .component('selectionFooter', { templateUrl: "app/components/selection/footer.html" })
       .factory('offerService', offerService)
       .filter('tagToClass', function() {
          return tagToClass;
