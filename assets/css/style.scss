@@ -230,9 +230,10 @@ html {
 
                span {
                   &:before {
-                     visibility: visible;
+                     position: static;
                      opacity: 1;
                      color: $color;
+                     transition: $animSpeed;
                   }
                }
             }
@@ -241,6 +242,7 @@ html {
                display: inline-block;
 
                &:before {
+                     position: absolute;
                   $circle_diameter: 1rem;
                   display: inline-block;
                   content:"\2713";
@@ -252,9 +254,7 @@ html {
                   // color: $color;
                   margin-right: 1rem;
                   font-size: 0.8rem;
-                  visibility: hidden;
                   opacity: 0;
-                  transition: $animSpeed;
                }
             }
 
