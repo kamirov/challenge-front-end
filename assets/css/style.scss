@@ -24,6 +24,7 @@ $page_padding: $page_padding_top $page_padding_side;
 
 html {
    font-family: Arial, Helvetica, sans-serif;
+   background: #fafafa;
 }
 
 
@@ -31,9 +32,7 @@ html {
 // SEC: Selection
 // ==============
 
-.page-selection {
-   background: #fafafa;
-   
+.page-selection {   
    header {
       h1 {
          background: #5ac8fa;
@@ -135,6 +134,52 @@ html {
                      background-color: $color;
                   }
                }
+            }
+         }
+      }
+   }
+
+   main {
+      
+   }
+
+   footer {
+      padding: 0 $page_padding_side;
+      background: #ffffff;
+
+      .logo-and-social {
+         display: flex;
+         justify-content: space-between;
+
+         .pub-logo {
+
+         }
+
+         .fb-like {
+            width: 50px;
+            height: 20px;
+            background: blue;
+         }
+      }
+
+      nav {
+         ul {
+            display: flex;
+            flex-wrap: wrap;
+
+            li {
+               width: 50%;
+               
+               a {
+                  color: #404040;
+                  text-decoration: none;
+
+                  &:hover {
+                     opacity: 0.8;
+                     text-decoration: underline;
+                  }
+               }
+
             }
          }
       }
