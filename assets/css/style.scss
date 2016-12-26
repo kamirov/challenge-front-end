@@ -140,12 +140,75 @@ html {
    }
 
    > main {
+      padding-top: 2rem;
+
+      h1 {
+         text-align: center;
+         font-size: 1.3rem;
+         font-weight: bold;
+      }
+
+      .offer-gallery {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+
+         .offer {
+            $icon_diameter: 2rem;
+
+            width: 50%;
+            text-align: center;
+            border: 1px solid #bfbfbf;
+            background: #fff;
+            padding: 1rem;
+            position: relative;
+
+
+            .selected-icon {
+
+            }
+
+            .info-icon:before {
+               position: absolute;
+               right: 1rem;
+               top: 1rem;
+               content: "i";
+               background: #bfbfbf;
+               display: block;
+               width: $icon_diameter;
+               height: $icon_diameter;
+               line-height: $icon_diameter;
+               border-radius: 50%;
+            }
+
+            .image {
+               height: 10rem;
+            }
+
+            .tag {
+               text-align: left;
+               border-radius: 2px;
+               border: 1px solid #fff;
+               padding: 0.5rem 1rem;
+               text-transform: uppercase;
+               font-weight: bold;
+               font-size: 0.9rem;
+            }
+
+            .name {
+               text-align: left;
+               display: block;
+               font-weight: bold;
+            }
+         }
+      }
+
       .main-nav-button {
          background: #bfbfbf;
          margin: 1rem $page_padding_side;
 
          span {
-            
+
          }
       }
    }
