@@ -9,7 +9,7 @@
             controller: 'selectionCtrl as selection'
          })
          // Product info page
-         .when('/info', {
+         .when('/info/:productId', {
             templateUrl: 'app/components/info/info.html',
             controller: 'infoCtrl as info'
          });
