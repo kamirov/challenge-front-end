@@ -3,6 +3,16 @@
 
 @import "reset.css";
 
+@font-face {
+   font-family: Montserrat;
+   src: url("../fonts/Montserrat-Light.otf") format("opentype");
+}
+@font-face {
+   font-family: Montserrat;
+   font-weight: bold;
+   src: url("../fonts/Montserrat-Regular.otf") format("opentype");
+}
+
 // Some definitions
 $pagePaddingTop: 1rem;
 $pagePaddingSide: 2rem;
@@ -20,13 +30,12 @@ $mainNavPaddingTop: 1rem;
    }
 }
 
-
 * {
    box-sizing: border-box;
 }
 
 html {
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: "Montserrat", "proxima-nova", "Helvetica Neue", "Helvetica", Arial, sans-serif;
    background: #fafafa;
    color: #404040;
 }
