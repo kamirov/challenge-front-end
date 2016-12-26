@@ -9,6 +9,7 @@ $pagePaddingSide: 2rem;
 $pagePadding: $pagePaddingTop $pagePaddingSide;
 $animSpeed: 1s;
 $mainNavHeight: 6rem;
+$mainNavPaddingTop: 1rem;
 
 // Some extensible classes
 .clearfix {
@@ -156,7 +157,7 @@ html {
 
       .main-nav-button-cont {
          background: #f4f4f4;
-         padding: 1rem $pagePaddingSide;
+         padding: $mainNavPaddingTop $pagePaddingSide;
          position: fixed;
          z-index: 50;
          bottom: 0;
@@ -233,10 +234,11 @@ html {
          @extend .clearfix;
 
          $bg_steps_cont: #f4f4f4; 
-
+         
          padding: 1rem $pagePaddingSide;
          background: $bg_steps_cont;
          width: 100%;        
+         overflow: hidden;
 
          ul {
             counter-reset: step;
@@ -385,33 +387,30 @@ html {
             // border: 1px solid #39ca74;
          // }
 
-         &.selected {
-
-            &:before {
-
-            }
-
+         &:nth-last-child(1), &:nth-last-child(2) {
+            margin-bottom: 0rem;
          }
-
       }
    }
 
    > footer {
-      padding: 0 $pagePaddingSide;
+      padding: 2rem $pagePaddingSide;
+      width: 100%;
+      margin-top: 2rem;
+      margin-bottom: $mainNavHeight;
+      // margin-bottom: calc(#{$mainNavHeight} + #{$mainNavPaddingTop});
       background: #ffffff;
 
       .logo-and-social {
          display: flex;
          justify-content: space-between;
+         margin-bottom: 3rem;
 
          .pub-logo {
 
          }
 
          .fb-like {
-            width: 50px;
-            height: 20px;
-            background: blue;
          }
       }
 
@@ -419,9 +418,15 @@ html {
          ul {
             display: flex;
             flex-wrap: wrap;
+            font-size: 0.9rem;
 
             li {
                width: 50%;
+               margin-bottom: 2rem;
+
+               &:nth-last-child(1), &:nth-last-child(2) {
+                  margin-bottom: 0rem;
+               }
                
                a {
                   color: #404040;
