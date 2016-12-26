@@ -1,0 +1,138 @@
+// SEC: Global
+// ===========
+
+@import "reset.css";
+
+// Some definitions
+$page_padding_top: 1rem;
+$page_padding_side: 2rem;
+$page_padding: $page_padding_top $page_padding_side;
+
+// Some extensible classes
+.clearfix {
+   &:after {
+      content: "";
+      display: table;
+      clear: both;
+   }
+}
+
+
+* {
+   box-sizing: border-box;
+}
+
+html {
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+// SEC: Selection
+// ==============
+
+.page-selection {
+   background: #fafafa;
+   
+   header {
+      h1 {
+         background: #5ac8fa;
+         padding: $page_padding;
+         font-size: 1.2rem;
+         color: #fff;
+      }
+
+      .steps-cont {
+         padding: 0 $page_padding_side;
+         background: #f4f4f4;
+         width: 100%;         
+
+         ul {
+            counter-reset: step;
+
+            li {
+               $circle_diameter: 1.85rem;
+               $bar_height: 0.7rem;
+
+               list-style-type: none;
+               width: 33.333%;
+               float: left;
+               position: relative;
+               text-align: center;
+
+               display: block;
+               color: #808080;
+               margin-top: 0.5rem;
+               font-size: 0.9rem;
+
+               // Item icon and number
+               &:before {
+
+                  line-height: $circle_diameter;
+                  width: $circle_diameter;
+                  height: $circle_diameter;
+                  content: counter(step);
+                  counter-increment: step;
+                  display: block;
+                  text-align: center;
+                  margin: 0 auto 10px auto;
+                  font-size: 0.9rem;
+                  font-weight: bold;
+                  background: #bfbfbf;
+                  color: #eaeaea;
+                  border-radius: 50%;
+               }
+
+               // Progress bar
+               &:after {
+                  width: 100%;
+                  height: $bar_height;
+                  content: '';
+                  position: absolute;
+                  background-color: #eaeaea;
+                  top: ($circle_diameter - $bar_height)/2;
+                  left: -50%;
+                  z-index: -1;
+               }
+
+               &:first-child:after {
+                  content: none;
+               }
+
+               &.current {
+                  $color: #3a99d8;                  
+                  color: $color;
+                  font-weight: bold;
+
+                  &:before {
+                     background: $color;
+                     color: #fff;
+                  }
+               }
+
+
+               &.done {
+                  $color: #39ca74;
+
+                  color: $color;
+                  font-weight: bold;
+
+                  &:before {
+                     color: #fff;
+                     background-color: #fff;
+                     background-image: url("../img/icon_check.svg");
+                     background-repeat: no-repeat;
+                     background-size: 80%;
+                     background-position: center;
+                     content: "";
+                  }
+
+                  +:after {
+                     background-color: $color;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

@@ -1,24 +1,16 @@
-<div class="page-selection" ng-controller="selectionCtrl as selection">
+<div class="page page-selection" ng-controller="selectionCtrl as selection">
    <header>
       <h1>BabyFirst</h1>
-      <div class="progress-steps-cont">
-         <div class="progress">
-            <div class="done"></div>
-         </div>
-         <div class="steps">
-            <div class="step">
-               <span class="step-icon">1</span>
-               <span class="step-name">Profile</span>
-            </div>
-            <div class="step">
-               <span class="step-icon">2</span>
-               <span class="step-name">Offers</span>
-            </div>
-            <div class="step">
-               <span class="step-icon">3</span>
-               <span class="step-name">Success</span>
-            </div>
-         </div>
+
+      <div class="steps-cont">
+         <ul>
+            <!--<div class="progress">
+               <div class="done"></div>
+            </div>-->
+            <li class="step done">Profile</li>
+            <li class="step current">Offers</li>
+            <li class="step">Success</li>
+         </ul>
       </div>
    </header>
 
