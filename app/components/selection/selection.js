@@ -1,11 +1,18 @@
 (function() {
    angular.module('FrontEndChallenge')
       .controller('selectionCtrl', selectionCtrl)
-      .directive('step', stepDirective);
+      .directive('step', stepDirective)
+      .directive('offer', offerDirective);
 
-
-   function selectionCtrl() {
+   function selectionCtrl($http) {
       var vm = this;
+
+      // Get data
+      vm.offers = [];
+      $http.get("assets/data.json")
+         .then(function(response) {
+            vm.offers = response.data.products;
+         });
 
       // Steps in the process
       vm.steps = {
@@ -14,6 +21,14 @@
       };
    }
 
+   function offerDirective() {
+      return {
+         restrict: 'E',
+         templateUrl: 'app/components/selection/offer.html',
+         controller: offerCtrl,
+         controllerAs: 'offer'
+      };
+   }
 
    function stepDirective() {
       return {
@@ -32,6 +47,10 @@
 
    function stepCtrl() {
       
+   }
+
+   function offerCtrl() {
+
    }
 
 })();

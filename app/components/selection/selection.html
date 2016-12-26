@@ -1,4 +1,4 @@
-<div class="page page-selection" ng-controller="selectionCtrl as selection">
+<div class="page page-selection">
    <header>
       <h1>BabyFirst</h1>
 
@@ -16,6 +16,19 @@
 
    <main>
       <h2>Pick your offers</h2>
+      <div class="offer-gallery">
+         <div class="offer" data-id="{{offer.id}}" ng-repeat="offer in selection.offers">
+            <span class="selected-icon"></span>
+            <span class="info-icon"></span>
+            <img class="image" src="{{offer.image}}">
+            <span class="tag">{{offer.tag}}</span>
+            <span class="name">{{offer.name}}</span>
+         </div>
+      </div>
+
+      <div class="main-nav-button">
+         <span>1 of offers selected</span>
+      </div>
    </main>
 
    <footer>

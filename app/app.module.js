@@ -5,4 +5,6 @@
       .run(function () {
          console.log('Done loading dependencies and configuring module!');
       });
+
+      
 })();

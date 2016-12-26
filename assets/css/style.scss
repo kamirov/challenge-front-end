@@ -33,7 +33,7 @@ html {
 // ==============
 
 .page-selection {   
-   header {
+   > header {
       h1 {
          background: #5ac8fa;
          padding: $page_padding;
@@ -139,11 +139,18 @@ html {
       }
    }
 
-   main {
-      
+   > main {
+      .main-nav-button {
+         background: #bfbfbf;
+         margin: 1rem $page_padding_side;
+
+         span {
+            
+         }
+      }
    }
 
-   footer {
+   > footer {
       padding: 0 $page_padding_side;
       background: #ffffff;
 

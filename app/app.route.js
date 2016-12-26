@@ -6,12 +6,12 @@
          // Selection page
          .when('/', {
             templateUrl: 'app/components/selection/selection.html',
-            controller: 'selectionCtrl'
+            controller: 'selectionCtrl as selection'
          })
          // Product info page
          .when('/info', {
             templateUrl: 'app/components/info/info.html',
-            controller: 'infoCtrl'
+            controller: 'infoCtrl as info'
          });
    });
 })();
