@@ -7,12 +7,12 @@
    <main>
       <div class="offer">
          <div class="offer-image-cont">
-            <img class="offer-image" src="{{info.offer.image}}">
+            <img class="offer-image" ng-src="{{info.offer.image}}">
          </div>
          <span class="tag {{info.offer.tag | tagToClass}}">{{info.offer.tag}}</span>
          <span class="name">{{info.offer.name}}</span>
          <div class="brand-info">
-            <img class="brand-logo" src="{{info.offer.logo}}">      
+            <img class="brand-logo" ng-src="{{info.offer.logo}}">      
             <span class="brand-name">{{info.offer.brand}}</span>      
          </div>
          <div class="description">{{info.offer.description}}</div>

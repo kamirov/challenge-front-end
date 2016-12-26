@@ -25,7 +25,7 @@
             <span class="selected-icon"></span>
             <a href="#!/info/{{offer.id}}" class="info-icon" title="Read more about {{offer.name}}" ng-click="$event.stopPropagation()"></a>
             <div class="offer-image-cont">
-               <img class="offer-image" src="{{offer.image}}">
+               <img class="offer-image" ng-src="{{offer.image}}">
             </div>
             <span class="tag {{offer.tag | tagToClass}}">{{offer.tag}}</span>
             <span class="name">{{offer.name}}</span>
