@@ -198,20 +198,25 @@ html {
       .steps-cont {
          @extend .clearfix;
 
+         $bg_steps_cont: #f4f4f4; 
+
          padding: 1rem $page_padding_side;
-         background: #f4f4f4;
+         background: $bg_steps_cont;
          width: 100%;        
 
          ul {
             counter-reset: step;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
 
             li {
                $circle_diameter: 1.85rem;
                $bar_height: 0.7rem;
 
                list-style-type: none;
-               width: 33.333%;
-               float: left;
+               // width: 33.333%;
+               // float: left;
                position: relative;
                text-align: center;
 
@@ -222,7 +227,6 @@ html {
 
                // Item icon and number
                &:before {
-
                   line-height: $circle_diameter;
                   width: $circle_diameter;
                   height: $circle_diameter;
@@ -242,18 +246,23 @@ html {
 
                // Progress bar
                &:after {
-                  width: 100%;
+                  width: 100vw;
                   height: $bar_height;
                   content: '';
                   position: absolute;
                   background-color: #eaeaea;
                   top: ($circle_diameter - $bar_height)/2;
-                  left: -50%;
+                  // left: -33.33vw;
+                  left: 50%;
                   z-index: 0;
                }
 
+               &:last-child:after {
+                  background: $bg_steps_cont;
+               }
+
                &:first-child:after {
-                  content: none;
+                  // content: none;
                }
 
                &.active {
@@ -266,7 +275,6 @@ html {
                      color: #fff;
                   }
                }
-
 
                &.done {
                   $color: #39ca74;
@@ -287,7 +295,7 @@ html {
                      content: "\2713";
                   }
 
-                  +:after {
+                  &:after {
                      background-color: $color;
                   }
                }
@@ -303,13 +311,14 @@ html {
       }
 
       .offer {
+         $offset: 0.5rem;
          border-radius: 4px;
          // width: 50%;
          flex-grow: 0;
          flex-shrink: 0;
-         flex-basis: 48%;
-         max-width: 48%;
-         margin-bottom: 1rem;
+         margin: $offset;
+         flex-basis: calc(50% - #{2*$offset});
+         max-width: calc(50% - #{2*$offset});
          // box-sizing: border-box;
          // margin: 1rem;
 
