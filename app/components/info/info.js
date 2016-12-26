@@ -6,6 +6,11 @@
       var vm = this;
       var productId = parseInt($route.current.params.productId);
 
+      // Default state (only needed keys are set)
+      vm.offer = {
+         tag: ''
+      }
+
       // Sync state with service
       vm.offers = offerService.offers;
       vm.selected = offerService.selected;
