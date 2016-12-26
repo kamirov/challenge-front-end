@@ -25,8 +25,156 @@ $page_padding: $page_padding_top $page_padding_side;
 html {
    font-family: Arial, Helvetica, sans-serif;
    background: #fafafa;
+   color: #404040;
 }
 
+
+// SEC: General Page
+// =================
+
+.page {
+   > header {
+      h1 {
+         background: #5ac8fa;
+         padding: $page_padding;
+         font-size: 1.2rem;
+         color: #fff;
+      }
+   }
+
+   > main {
+
+      .offer {
+         $icon_diameter: 1.3rem;
+         $icon_offset: 1rem;
+
+         text-align: left;
+         border: 1px solid #bfbfbf;
+         background: #fff;
+         padding: 1rem;
+         position: relative;
+
+         .selected-icon {
+            position: absolute;
+            left: $icon_offset;
+            top: $icon_offset;
+            background-image: url("../img/icon_check.svg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: center;
+            width: $icon_diameter;
+            height: $icon_diameter;
+            display: none;
+         }
+
+         .info-icon:before {
+            position: absolute;
+            right: $icon_offset;
+            top: $icon_offset;
+            content: "i";
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #fff;
+            font-weight: bold;
+            font-size: 0.9rem;
+            background: #bfbfbf;
+            width: $icon_diameter;
+            height: $icon_diameter;
+            line-height: $icon_diameter;
+            border-radius: 50%;
+            text-align: center;
+         }
+
+         .offer-image-cont {
+            background: #ffffff;
+            text-align: center;
+            width: 100%;
+            height: 10rem;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .offer-image {
+               max-width: 100%;
+               max-height: 100%;
+            }
+         }
+
+         .tag {
+            text-align: left;
+            border-radius: 2px;
+            border: 1px solid #fff;
+            padding: 0.2rem 0.7rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.7rem;
+            display: inline-block;
+            margin: 1.3rem 0 0.5rem;
+
+            &.toddler {
+               $color: #00bcd4;
+               color: $color;
+               border-color: $color;
+               background: #f7fdfd;
+            }
+
+            &.new-born {
+               $color: #9c27b0;
+               color: $color;
+               border-color: $color;
+               background-color: #faf7fc;
+            }
+
+            &.all-ages {
+               $color: #334659;
+               color: $color;
+               border-color: $color;
+               background: #f6f7f8;
+            }
+
+            &.kids-4 {
+               $color: #8cc152; 
+               color: $color;
+               border-color: $color;
+               background-color: #fbfdf6;
+            }
+         }
+
+         .name {
+            text-align: left;
+            display: block;
+            font-weight: bold;
+            line-height: 1.4;
+            font-size: 0.9rem;
+         }
+      }
+
+      .main-nav-button-cont {
+         background: #f4f4f4;
+         padding: 1rem $page_padding_side;
+         position: fixed;
+         bottom: 0;
+         width: 100%;        
+
+         .main-nav-button {
+            background: #bfbfbf;
+            padding: 1.4rem 1rem;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            border-radius: 4px;
+            display: block;
+            text-decoration: none;
+            color: #fff;
+
+            &.active {
+               background: #3a99d8;
+            }
+         }
+
+      }
+   }
+}
 
 
 // SEC: Selection
@@ -34,11 +182,17 @@ html {
 
 .page-selection {   
    > header {
+
+
+   }
+
+   > main {
+
       h1 {
-         background: #5ac8fa;
-         padding: $page_padding;
-         font-size: 1.2rem;
-         color: #fff;
+         padding: 2rem $page_padding_side;
+         text-align: center;
+         font-size: 1.4rem;
+         font-weight: bold;
       }
 
       .steps-cont {
@@ -102,7 +256,7 @@ html {
                   content: none;
                }
 
-               &.current {
+               &.active {
                   $color: #3a99d8;                  
                   color: $color;
                   font-weight: bold;
@@ -121,13 +275,16 @@ html {
                   font-weight: bold;
 
                   &:before {
-                     color: #fff;
-                     background-color: #fff;
+                     // color: #fff;
+                     // background-color: #fff;
+                                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
                      background-image: url("../img/icon_check.svg");
                      background-repeat: no-repeat;
                      background-size: 80%;
                      background-position: center;
-                     content: "";
+                     background: #39ca74;
+                     content: "\2713";
                   }
 
                   +:after {
@@ -137,77 +294,26 @@ html {
             }
          }
       }
-   }
-
-   > main {
-      padding-top: 2rem;
-
-      h1 {
-         text-align: center;
-         font-size: 1.3rem;
-         font-weight: bold;
-      }
 
       .offer-gallery {
+         padding: 0 $page_padding_side;
          display: flex;
          flex-wrap: wrap;
          justify-content: space-between;
-
-         .offer {
-            $icon_diameter: 2rem;
-
-            width: 50%;
-            text-align: center;
-            border: 1px solid #bfbfbf;
-            background: #fff;
-            padding: 1rem;
-            position: relative;
-
-
-            .selected-icon {
-
-            }
-
-            .info-icon:before {
-               position: absolute;
-               right: 1rem;
-               top: 1rem;
-               content: "i";
-               background: #bfbfbf;
-               display: block;
-               width: $icon_diameter;
-               height: $icon_diameter;
-               line-height: $icon_diameter;
-               border-radius: 50%;
-            }
-
-            .image {
-               height: 10rem;
-            }
-
-            .tag {
-               text-align: left;
-               border-radius: 2px;
-               border: 1px solid #fff;
-               padding: 0.5rem 1rem;
-               text-transform: uppercase;
-               font-weight: bold;
-               font-size: 0.9rem;
-            }
-
-            .name {
-               text-align: left;
-               display: block;
-               font-weight: bold;
-            }
-         }
       }
 
-      .main-nav-button {
-         background: #bfbfbf;
-         margin: 1rem $page_padding_side;
+      .offer {
+         border-radius: 4px;
+         // width: 50%;
+         flex-grow: 0;
+         flex-shrink: 0;
+         flex-basis: 48%;
+         max-width: 48%;
+         margin-bottom: 1rem;
+         // box-sizing: border-box;
+         // margin: 1rem;
 
-         span {
+         .selected-icon {
 
          }
       }
@@ -253,5 +359,18 @@ html {
             }
          }
       }
+   }
+}
+
+
+// SEC: Info
+// =========
+
+.page-info {
+   > main {
+      .offer {
+         width: 100%;
+      }
+
    }
 }

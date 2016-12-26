@@ -1,11 +1,24 @@
 (function() {
    angular.module('FrontEndChallenge')
       .controller('selectionCtrl', selectionCtrl)
-      .directive('step', stepDirective)
-      .directive('offer', offerDirective);
+      // .directive('step', stepDirective)
+      .directive('offer', offerDirective)
+      .filter('tagToClass', function() {
+         return tagToClass;
+
+         function tagToClass(tag) {
+            return tag
+                     .toLowerCase()
+                     .replace(/ /gi, '-')
+                     .replace(/\+/gi, '');
+         }
+      })
 
    function selectionCtrl($http) {
       var vm = this;
+
+      // Get selected offers
+      // TBA
 
       // Get data
       vm.offers = [];
@@ -30,27 +43,28 @@
       };
    }
 
-   function stepDirective() {
-      return {
-         restrict: 'E',
-         templateUrl: 'app/components/selection/step.html',
-         scope: {
-            status: '@',
-            idx: '@',
-            name: '@'
-         },
-         controller: stepCtrl,
-         controllerAs: 'step'
-      };
-   }
-
-
-   function stepCtrl() {
-      
-   }
-
    function offerCtrl() {
 
    }
+
+   // function stepDirective() {
+   //    return {
+   //       restrict: 'E',
+   //       templateUrl: 'app/components/selection/step.html',
+   //       scope: {
+   //          status: '@',
+   //          idx: '@',
+   //          name: '@'
+   //       },
+   //       controller: stepCtrl,
+   //       controllerAs: 'step'
+   //    };
+   // }
+
+
+   // function stepCtrl() {
+      
+   // }
+
 
 })();
