@@ -3,6 +3,7 @@
       .controller('selectionCtrl', selectionCtrl)
       // .directive('step', stepDirective)
       .directive('offer', offerDirective)
+      .factory('offerService', offerService)
       .filter('tagToClass', function() {
          return tagToClass;
 
@@ -13,55 +14,88 @@
                      .replace(/\+/gi, '');
          }
       })
+      
 
-   function selectionCtrl($http) {
-      var vm = this;
+   function offerService($http, $window) {
+      var svc = {};               
 
-      // Get selected offers
-      vm.selected = [];
+      // Default offers
+      svc.offers = [];
 
-      vm.maxSelections = 5;
+      // Gets persistent selected offers
+      var maxSelections = 5;
+      var selectedRaw = $window.localStorage.selected;
+      svc.selected = (selectedRaw ? JSON.parse(selectedRaw) : []); 
 
-      // TBA
-
-      // Get data
-      vm.offers = [];
-      $http.get("assets/data.json")
-         .then(function(response) {
-            vm.offers = response.data.products;
-         });
-
-      // Steps in the process
-      vm.steps = {
-         items: ['Profile', 'Offers', 'Success'],
-         currentItem: 1
+      svc.loadOffers = function() {
+         return $http.get("assets/data.json")
+            .then(function(response) {
+               angular.copy(response.data.products, svc.offers);
+               // svc.offers = response.data.products;
+            });            
       };
 
-      this.isSelected = function(offerId) {
-         return vm.selected.includes(offerId);
-     }
+      svc.reachedMaxSelections = function() {
+         return svc.selected.length === maxSelections;
+      };
 
-      this.handleSelect = function(offerId) {
+      svc.isSelected = function(offerId) {
+         return svc.selected.includes(offerId);
+      };
 
+      svc.select = function(offerId) {
          // Find the offer 
-         var offer = vm.offers.find(function(item) {
+         var offer = svc.offers.find(function(item) {
             return item.id === offerId;
          });
-
-         var offerIdx = vm.selected.indexOf(offer.id);
+         var offerIdx = svc.selected.indexOf(offer.id);
 
          // Toggle selection
          if (offerIdx === -1) {
-            if (!vm.reachedMaxSelections())
-               vm.selected.push(offer.id);
+            if (!this.reachedMaxSelections())
+               svc.selected.push(offer.id);
          }
          else
-            vm.selected.splice(offerIdx, 1);
+            svc.selected.splice(offerIdx, 1);
+
+         // Update local storage
+         $window.localStorage.selected = JSON.stringify(svc.selected);
+      };
+
+      return svc;      
+   }
+
+
+   function selectionCtrl(offerService) {
+      var vm = this;
+
+      // Sync state with service
+      vm.offers = offerService.offers;
+      vm.selected = offerService.selected;
+      offerService.loadOffers();
+
+      // offerService.loadOffers().then(function() {
+      //    vm.offers = offerService.getOffers();
+      // });
+
+      // Get data
+
+      // Steps in the process
+      // vm.steps = {
+      //    items: ['Profile', 'Offers', 'Success'],
+      //    currentItem: 1
+      // };
+
+      this.isSelected = function(offerId) {
+         return offerService.isSelected(offerId);
+     }
+
+      this.handleSelect = function(offerId) {
+         offerService.select(offerId);
       }
 
       this.reachedMaxSelections = function() {
-         // console.log(vm.selected, vm.selected.length, vm.maxSelections);
-         return vm.selected.length === vm.maxSelections;
+         return offerService.reachedMaxSelections();
       }
    }
 
