@@ -1,8 +1,5 @@
-// Angular entry point. Defines root template directive.
+// Angular entry point. Defines dependencies.
 
 (function() {
-   angular.module('FrontEndChallenge', ['ngRoute', 'ngAnimate'])
-      .run(function () {
-         console.log('Done loading dependencies and configuring module!');
-      });
+   angular.module('FrontEndChallenge', ['ngRoute', 'ngAnimate']);
 })();

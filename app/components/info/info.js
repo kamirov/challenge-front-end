@@ -2,7 +2,10 @@
    angular.module('FrontEndChallenge')
       .controller('infoCtrl', infoCtrl)
 
+
    function infoCtrl(offerService, $route) {
+      selectionCtrl.$inject = ['offerService', '$route'];
+
       var vm = this;
       var productId = parseInt($route.current.params.productId);
 
