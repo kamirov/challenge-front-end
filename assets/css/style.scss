@@ -54,6 +54,11 @@ html {
    background: #fafafa;
    color: #404040;
    overflow-y: scroll;    // Prevents the animation jump when switching from selection to info views
+   // font-size: 16px;
+}
+
+body {
+   font-size: 16px;
 }
 
 .wrapper {
