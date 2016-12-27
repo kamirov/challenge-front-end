@@ -1,0 +1,11 @@
+<div class="main-nav-button-cont">
+   <span 
+      class="main-nav-button"
+      ng-click="app.handleMainNavButtonClick()" 
+      ng-class="{ done: app.reachedMaxSelections(),
+                  active: app.isModalSelected() || app.isModalSelectable() }">
+      <span ng-if="app.isModalSelected()">Remove offer</span>
+      <span ng-if="app.isModalSelectable()">Select offer</span>
+      <span ng-if="!app.modalIsOpen() || (!app.isModalSelected() && !app.isModalSelectable())">{{app.selected.length}} of 5 offers selected</span>
+   </span>
+</div>

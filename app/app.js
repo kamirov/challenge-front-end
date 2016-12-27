@@ -3,7 +3,8 @@
 (function() {
    angular.module('FrontEndChallenge', ['ngAnimate'])
       .directive('app', appDirective)
-      .directive('productDetails', productDetailsDirective);
+      .directive('productDetails', productDetailsDirective)
+      .directive('mainNavButton', mainNavButtonDirective);
 
    function appDirective() {
       return {
@@ -87,6 +88,15 @@
       return {
          restrict: 'E',
          templateUrl: 'app/components/product-details.html',
+         controller: appCtrl,
+         controllerAs: 'app'
+      };
+   }
+
+   function mainNavButtonDirective() {
+      return {
+         restrict: 'E',
+         templateUrl: 'app/components/main-nav-button.html',
          controller: appCtrl,
          controllerAs: 'app'
       };
