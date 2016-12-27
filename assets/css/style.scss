@@ -15,10 +15,10 @@
 
 // Some definitions
 $pagePaddingTop: 1rem;
-$pagePaddingSide: 2rem;
+$pagePaddingSide: 1.7rem;
 $pagePadding: $pagePaddingTop $pagePaddingSide;
 $animSpeed: 1s;
-$mainNavHeight: 6rem;
+$mainNavHeight: 5.3rem;
 $mainNavPaddingTop: 1rem;
 $hoverOpacity: 0.8;
 $focusOpacity: 0.9;
@@ -82,6 +82,7 @@ body {
 
       h1 {
          padding: $pagePadding;
+         font-size: 1rem;
       }
    }
 
@@ -138,7 +139,7 @@ body {
             background: #ffffff;
             text-align: center;
             width: 100%;
-            height: 10rem;
+            height: 7.7rem;
             padding: 0.5rem;
             display: flex;
             justify-content: space-around;
@@ -168,7 +169,7 @@ body {
                background: #f7fdfd;
             }
 
-            &.newborn {
+            &.newborn, &.new-born {
                $color: #9c27b0;
                color: $color;
                border-color: $color;
@@ -210,7 +211,7 @@ body {
    > main {
 
       h1 {
-         padding: 2rem $pagePaddingSide;
+         padding: 1.7rem $pagePaddingSide 1.3rem;
          text-align: center;
          font-size: 1.4rem;
          font-weight: bold;
@@ -221,7 +222,7 @@ body {
 
          $bg_steps_cont: #f4f4f4; 
          
-         padding: 1rem $pagePaddingSide;
+         padding: 0.2rem $pagePaddingSide 0.8rem;
          background: $bg_steps_cont;
          width: 100%;        
          overflow: hidden;
@@ -233,8 +234,8 @@ body {
             position: relative;
 
             li {
-               $circle_diameter: 1.85rem;
-               $bar_height: 0.7rem;
+               $circle_diameter: 1.5rem;
+               $bar_height: 0.5rem;
 
                list-style-type: none;
                // width: 33.333%;
@@ -245,7 +246,7 @@ body {
                display: block;
                color: #808080;
                margin-top: 0.5rem;
-               font-size: 0.9rem;
+               font-size: 0.8rem;
 
                // Item icon and number
                &:before {
@@ -257,7 +258,7 @@ body {
                   display: block;
                   text-align: center;
                   margin: 0 auto 10px auto;
-                  font-size: 0.9rem;
+                  font-size: 0.7rem;
                   font-weight: bold;
                   background: #bfbfbf;
                   color: #eaeaea;
@@ -326,7 +327,7 @@ body {
       }
 
       .offer-gallery {
-         padding: 0 $pagePaddingSide;
+         padding: 0 calc(#{$pagePaddingSide} - 1.2rem);
          display: flex;
          flex-wrap: wrap;
          justify-content: space-between;
@@ -378,7 +379,7 @@ body {
       .logo-and-social {
          display: flex;
          justify-content: space-between;
-         margin-bottom: 3rem;
+         margin-bottom: 2.8rem;
 
          .pub-logo {
 
@@ -392,11 +393,11 @@ body {
          ul {
             display: flex;
             flex-wrap: wrap;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
 
             li {
                width: 50%;
-               margin-bottom: 2rem;
+               margin-bottom: 1.6rem;
 
                &:nth-last-child(1), &:nth-last-child(2) {
                   margin-bottom: 0rem;
@@ -430,6 +431,8 @@ body {
    height: 100%;
    z-index: 100;
    background: #fafafa;
+   overflow: auto;
+   padding-bottom: $mainNavHeight + 0.9rem;
 
    &.ng-enter, &.ng-leave {
       transition: 320ms;
@@ -465,13 +468,31 @@ body {
          width: 100%;
          background: #fafafa;
          border: none;
+         padding: 0;
 
          .name {
             font-size: 1.5rem;
          }
 
+         .offer-image-cont {
+            height: 11.2rem;
+            padding: 1rem;
+
+            .offer-image {
+
+            }
+         }
+
+         .under-image {
+            padding: 0 $pagePaddingSide;
+
+            .tag {
+               margin-top: 1rem;
+            }
+         }
+
          .brand-info {
-            margin-top: 0.6rem;
+            margin-top: 0.5rem;
             margin-bottom: 1rem;
             padding-bottom: 1rem;
             border-bottom: 2px solid #dddddd;
@@ -483,7 +504,7 @@ body {
 
             .brand-name {
                vertical-align: middle;            
-               margin-left: 0.6rem;   
+               margin-left: 0.5rem;   
             }
          }
          
@@ -514,7 +535,8 @@ aside {
          padding: 0 1rem;
          font-weight: bold;
          height: 100%;
-         font-size: 1rem;
+         letter-spacing: 1;
+         font-size: 0.9rem;
          text-align: center;
          border-radius: 4px;
          display: table-cell;

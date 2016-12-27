@@ -9,13 +9,15 @@
          <div class="offer-image-cont">
             <img class="offer-image" ng-src="{{app.modal.offer.image}}">
          </div>
-         <span class="tag {{app.modal.offer.tag | tagToClass}}">{{app.modal.offer.tag}}</span>
-         <span class="name">{{app.modal.offer.name}}</span>
-         <div class="brand-info">
-            <img class="brand-logo" ng-src="{{app.modal.offer.logo}}">      
-            <span class="brand-name">{{app.modal.offer.brand}}</span>      
+         <div class="under-image">
+            <span class="tag {{app.modal.offer.tag | tagToClass}}">{{app.modal.offer.tag}}</span>
+            <span class="name">{{app.modal.offer.name}}</span>
+            <div class="brand-info">
+                  <img class="brand-logo" ng-src="{{app.modal.offer.logo}}">      
+                  <span class="brand-name">{{app.modal.offer.brand}}</span>      
+            </div>
+            <div class="description">{{app.modal.offer.description}}</div>
          </div>
-         <div class="description">{{app.modal.offer.description}}</div>
       </div>
 <!--
       <div class="main-nav-button-cont">
