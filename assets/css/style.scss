@@ -114,7 +114,10 @@ body {
          }
 
          .info-icon {
+            @extend .link-mouse-effect;
+
             &:before {
+
                position: absolute;
                z-index: 10;
                right: $icon_offset;
@@ -349,17 +352,36 @@ body {
          // box-sizing: border-box;
          // margin: 1rem;
 
+         &:before {
+            transition: $animSpeed;
+            content: ' ';
+            display: block;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            left: -2px;
+            top: -2px;
+            background: #fafafa;
+            position: absolute;
+            z-index: -1;
+            border-radius: 4px;
+         }
+
          &.unselectable {
             cursor: default;
          }
 
          &.selected {
             cursor: pointer;
+            // border: 1px solid #39ca74;
             border: 1px solid #39ca74;
             box-shadow: 0px 3px 5px 0 rgba(199, 199, 199, 0.75);
 
             .selected-icon {
                opacity: 1;
+            }
+
+            &:before {
+               background: #39ca74;
             }
          }
 
@@ -451,6 +473,8 @@ body {
       justify-content: space-between;
 
      .close-icon {
+         @extend .link-mouse-effect;
+
          text-decoration: none;
          padding: $pagePadding;
          cursor: pointer;
