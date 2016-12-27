@@ -580,8 +580,9 @@ aside {
          span, a {
             display: inline-block;
 
+            // Checkmark
             &:before {
-                  position: absolute;
+               position: absolute;
                $circle_diameter: 1rem;
                display: inline-block;
                content:"\2713";
@@ -591,7 +592,7 @@ aside {
                border-radius: 50%;
                background: #fff;
                // color: $color;
-               margin-right: 1rem;
+               margin-right: 0.9rem;
                font-size: 0.8rem;
                opacity: 0;
             }
