@@ -23,16 +23,51 @@
          </div>
       </div>
 
-      <div class="main-nav-button-cont">
+      <!--<div class="main-nav-button-cont">
          <a href="" class="main-nav-button" ng-class="{ done: app.reachedMaxSelections() }">
             <span>{{app.selected.length}} of 5 offers selected</span>  
          </a>
-      </div>
+      </div>-->
    </main>
 
     <!-- Modal window -->
     <aside>
       <product-details></product-details>
+    </aside>
+
+    <aside>
+      <div class="main-nav-button-cont">
+         <!--<span ng-if="app.modalIsOpen()">
+            <span class="main-nav-button" ng-if="app.isSelected(modal.offer.id)">
+               Remove offer
+            </span>
+            <span ng-if="!app.isSelected(modal.offer.id)">
+               <span ng-if="app.reachedMaxSelections()">
+                  <a href="http://www.sampler.io" class="main-nav-button done">
+                     <span>{{app.selected.length}} of 5 offers selected</span>
+                  </a>
+               </span>
+               <span class="main-nav-button" ng-if="!app.reachedMaxSelections()">
+                  Select offer
+               </span>
+            </span>
+         </span>
+         <span ng-if="!app.modalIsOpen()">
+            <a href="http://www.sampler.io" class="main-nav-button" ng-class="{ done: app.reachedMaxSelections() }">
+               <span>{{app.selected.length}} of 5 offers selected</span>
+            </a>
+         </span>
+      </div>-->
+         <span 
+            class="main-nav-button"
+            ng-click="app.handleMainNavButtonClick()" 
+            ng-class="{ done: app.reachedMaxSelections(),
+                        active: app.isModalSelected() || app.isModalSelectable() }">
+            <span ng-if="app.isModalSelected()">Remove offer</span>
+            <span ng-if="app.isModalSelectable()">Select offer</span>
+            <span ng-if="!app.modalIsOpen() || (!app.isModalSelected() && !app.isModalSelectable())">{{app.selected.length}} of 5 offers selected</span>
+         </span>
+      </div>
     </aside>
 
     <footer ng-include="'app/components/footer.html'"></footer>

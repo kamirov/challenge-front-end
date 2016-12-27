@@ -14,8 +14,8 @@
       };
    }
 
-   function appCtrl(offerService) {
-      appCtrl.$inject = ['offerService'];
+   function appCtrl(offerService, $window) {
+      appCtrl.$inject = ['offerService', '$window'];
 
       var vm = this;
 
@@ -33,6 +33,31 @@
             active: true,
             offer: offer
          };
+      }
+
+
+      vm.handleMainNavButtonClick = function() {
+         if (vm.isModalSelected() || vm.isModalSelectable()) {
+            vm.select(vm.modal.offer.id);
+            vm.resetModal();
+         }
+         else if (vm.reachedMaxSelections()) {
+            $window.location.href = 'http://www.sampler.io';
+         }
+      }
+
+      // Returns true if the modal window is displaying a selected offer
+      vm.isModalSelected = function() {
+          return vm.modalIsOpen() && vm.isSelected(vm.modal.offer.id);
+      }
+
+      // Returns true if the modal window is displaying a selectable offer
+      vm.isModalSelectable = function() {
+          return vm.modalIsOpen() && !vm.isSelected(vm.modal.offer.id) && !vm.reachedMaxSelections()
+      }
+
+      vm.modalIsOpen = function() {
+          return vm.modal.active;
       }
 
       vm.isSelected = function(productId) {

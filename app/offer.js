@@ -3,7 +3,6 @@
       .factory('offerService', offerService)
       .filter('tagToClass', tagToClassFilter);
 
-
    // Handles all offer business logic
    function offerService($http, $window) {
       var svc = {};               
