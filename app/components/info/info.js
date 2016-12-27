@@ -35,5 +35,9 @@
       vm.reachedMaxSelections = function() {
          return offerService.reachedMaxSelections();
       }
+
+      vm.openModal = function() {
+         $event.stopPropagation();
+      }
    }
 })();

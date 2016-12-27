@@ -46,30 +46,11 @@ html {
   width: 100%;
 }
 
-.ng-enter {
-  opacity: 0;
-}
-
-.ng-enter.ng-enter-active {
-  opacity: 1;
-}
-
-.ng-leave {
-  opacity: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.ng-leave.ng-leave-active {
-  opacity: 0;
-}
-
 
 // SEC: General Page
 // =================
 
-.page {
+.page, .modal {
    width: 100%;
    height: 100%;
    position: relative;
@@ -111,22 +92,25 @@ html {
             opacity: 0;
          }
 
-         .info-icon:before {
-            position: absolute;
-            z-index: 10;
-            right: $icon_offset;
-            top: $icon_offset;
-            content: "i";
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: #fff;
-            font-weight: bold;
-            font-size: 0.9rem;
-            background: #bfbfbf;
-            width: $icon_diameter;
-            height: $icon_diameter;
-            line-height: $icon_diameter;
-            border-radius: 50%;
-            text-align: center;
+         .info-icon {
+            &:before {
+               position: absolute;
+               z-index: 10;
+               right: $icon_offset;
+               top: $icon_offset;
+               content: "i";
+               font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+               color: #fff;
+               font-weight: bold;
+               font-size: 0.9rem;
+               background: #bfbfbf;
+               width: $icon_diameter;
+               height: $icon_diameter;
+               line-height: $icon_diameter;
+               border-radius: 50%;
+               text-align: center;
+            }
+
          }
 
          .offer-image-cont {
@@ -198,7 +182,7 @@ html {
          background: #f4f4f4;
          padding: $mainNavPaddingTop $pagePaddingSide;
          position: fixed;
-         z-index: 50;
+         z-index: 200;
          bottom: 0;
          width: 100%;
          height: $mainNavHeight;
@@ -269,10 +253,7 @@ html {
 // SEC: Selection
 // ==============
 
-.page-selection {   
-   > header {
-
-   }
+.page {   
 
    > main {
 
@@ -489,15 +470,35 @@ html {
 // SEC: Info
 // =========
 
-.page-info {
+.modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 100;
+   background: #fafafa;
 
-   > header {
+   &.ng-enter, &.ng-leave {
+      transition: 320ms;
+   }
+
+   &.ng-enter, &.ng-leave.ng-leave-active {
+      opacity: 0;
+   }
+
+   &.ng-leave, &.ng-enter.ng-enter-active {
+      opacity: 1;
+   }
+
+  > header {
       display: flex;
       justify-content: space-between;
 
      .close-icon {
          text-decoration: none;
          padding: $pagePadding;
+         cursor: pointer;
 
         &:before {
            font-weight: bold;

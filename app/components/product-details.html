@@ -1,0 +1,34 @@
+<section class="modal" ng-if="app.modal.active">
+   <header>
+      <h1>Offer Details</h1>
+      <span title="Go back to offers" class="close-icon" ng-click="app.resetModal()"></span>
+   </header>
+
+   <main>
+      <div class="offer">
+         <div class="offer-image-cont">
+            <img class="offer-image" ng-src="{{app.modal.offer.image}}">
+         </div>
+         <span class="tag {{app.modal.offer.tag | tagToClass}}">{{app.modal.offer.tag}}</span>
+         <span class="name">{{app.modal.offer.name}}</span>
+         <div class="brand-info">
+            <img class="brand-logo" ng-src="{{app.modal.offer.logo}}">      
+            <span class="brand-name">{{app.modal.offer.brand}}</span>      
+         </div>
+         <div class="description">{{app.modal.offer.description}}</div>
+      </div>
+<!--
+      <div class="main-nav-button-cont">
+         <a href="#!/" class="main-nav-button active" ng-click="app.select()" ng-show="app.isSelected()">
+            <span>Remove offer</span>
+         </a>
+         <a href="#!/" class="main-nav-button active" ng-click="app.select()" ng-show="!app.isSelected() && !app.reachedMaxSelections()">
+            <span>Select offer</span>
+         </a>
+         <span class="main-nav-button" ng-show="!app.isSelected() && app.reachedMaxSelections()">
+            <span>5 of 5 offers selected</span>
+         </span>
+      </div>
+-->
+   </main>
+</section>
