@@ -3,6 +3,7 @@
       .factory('offerService', offerService)
       .filter('tagToClass', tagToClassFilter);
 
+
    // Handles all offer business logic
    function offerService($http, $window) {
       var svc = {};               
@@ -32,16 +33,17 @@
 
 
       svc.isSelected = function(productId) {
-         return svc.selected.includes(productId);
+         return svc.selected.indexOf(productId) !== -1;
       };
 
 
       // Selects or unselects an offer
       svc.select = function(productId) {
          // Find the offer 
-         var offer = svc.offers.find(function(item) {
+         var offer = svc.offers.filter(function(item) {
             return item.id === productId;
          });
+         offer = offer[0]; // We should include an Array.find shim
          var productIdx = svc.selected.indexOf(offer.id);
 
          // Toggle selection

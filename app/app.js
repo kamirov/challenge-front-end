@@ -6,6 +6,7 @@
       .directive('productDetails', productDetailsDirective)
       .directive('mainNavButton', mainNavButtonDirective);
 
+
    function appDirective() {
       return {
          restrict: 'E',
@@ -14,6 +15,7 @@
          controllerAs: 'app'
       };
    }
+
 
    function appCtrl(offerService, $window) {
       appCtrl.$inject = ['offerService', '$window'];
@@ -35,7 +37,6 @@
             offer: offer
          };
       }
-
 
       vm.handleMainNavButtonClick = function() {
          if (vm.isModalSelected() || vm.isModalSelectable()) {
@@ -73,7 +74,6 @@
          return offerService.reachedMaxSelections();
       }
 
-      
       // Sync state with service
       vm.offers = offerService.offers;
       vm.selected = offerService.selected;
@@ -84,6 +84,7 @@
       vm.resetModal();
    }
 
+
    function productDetailsDirective() {
       return {
          restrict: 'E',
@@ -92,6 +93,7 @@
          controllerAs: 'app'
       };
    }
+
 
    function mainNavButtonDirective() {
       return {

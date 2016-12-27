@@ -370,10 +370,10 @@ body {
    }
 
    > footer {
-      padding: 2rem $pagePaddingSide;
+      padding: 2rem $pagePaddingSide calc(#{$mainNavHeight} + 1.5rem);
       width: 100%;
       margin-top: 2rem;
-      margin-bottom: $mainNavHeight;
+      // margin-bottom: $mainNavHeight;
       background: #ffffff;
 
       .logo-and-social {
